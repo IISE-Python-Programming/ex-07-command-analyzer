@@ -5,14 +5,14 @@ def count_unique(data):
 
     Input:
         data: read_csv 함수로 읽어들인 list 형태의 데이터
-    
+
     Output:
         n_unique_id: 고유한 id의 수
         n_unique_command: 고유한 command의 수
     """
     #===== write your code below =======
 
-   
+
     #===================================
 
     return n_unique_id, n_unique_command
@@ -25,14 +25,14 @@ def make_dict(data):
 
     Input:
         data: read_csv 함수로 읽어들인 list 형태의 데이터
-    
+
     Output:
-        data_dict: id를 key, 
+        data_dict: id를 key,
                    해당 id가 실행한 command들의 list가 value인 dict
     """
     #===== write your code below =======
 
-   
+
     #===================================
 
     return data_dict
@@ -56,7 +56,7 @@ def find_ranked(data_dict, rank=1):
 
     #===== write your code below =======
 
-   
+
     #===================================
 
     return (target_id, n_commands, n_unique_commands)
@@ -72,7 +72,7 @@ def sort_by_n_command(data_dict):
     sorted_dict = OrderedDict(sorted(data_dict.items(),
                                      key=lambda x:len(x[1]),
                                      reverse=True))
-    
+
     return sorted_dict
 
 # Helper function: 이 함수는 수정하지 말 것
@@ -87,7 +87,7 @@ def read_csv(filename):
         reader = csv.reader(f, delimiter=',', quotechar='"')
         for row in reader:
             command_data.append(row)
-    
+
     # 첫 줄 (header) 을 제거하고 반환
     return command_data[1:]
 
@@ -102,5 +102,5 @@ if __name__ == "__main__":
 
     data_dict = make_dict(data)
 
-    # Correct answer: ('tarzan', 4193, 51)  
+    # Correct answer: ('elsa', 7500, 78)
     res = find_ranked(data_dict, rank=2)
